@@ -1,0 +1,30 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/private/template/main.xhtml">
+
+	<ui:param name="pageTitle" value="Aluno - Inclusão" />
+
+	<ui:define name="body">
+		<h:form id="formulario">
+			<p:growl showDetail="true" sticky="true" />
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Nome" for="nome" />
+				<p:inputText id="nome" value="#{alunoMB.aluno.nome}" required="true"/>
+				<p:outputLabel value="Matrícula" for="matricula" />
+				<p:inputText id="matricula" value="#{alunoMB.aluno.matricula}" />
+				<p:outputLabel value="Data Nascimento" for="datanasc" />
+				<p:inputText id="datanasc" value="#{alunoMB.aluno.dataNascimento}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</p:inputText>
+
+				<p:commandButton 
+					value="Incluir" 
+					action="#{alunoMB.insert()}" 
+					update="formulario"/>
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>

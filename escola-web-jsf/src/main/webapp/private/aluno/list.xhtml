@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/private/template/main.xhtml">
+
+<ui:param name="pageTitle" value="Aluno - Listagem" />
+
+<ui:define name="body">
+	<h:form>
+		
+		<p:dataTable value="#{alunoMB.list}" var="a" sortBy="#{a.nome}"
+			filteredValue="#{alunoMB.filteredList}">
+
+			<p:column headerText="Nome" sortBy="#{a.nome}" filterBy="#{a.nome}"
+				filterMatchMode="contains">
+				<h:outputText value="#{a.nome}" />
+			</p:column>
+
+			<p:column headerText="Matrícula">
+				<h:outputText value="#{a.matricula}" >
+					<f:converter converterId="matricula.converter"/>
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="Data Nascimento">
+				<h:outputText value="#{a.dataNascimento}" >
+					<f:convertDateTime pattern="dd/MM/yyyy"/>
+				</h:outputText>
+			</p:column>
+
+		</p:dataTable>
+	</h:form>
+</ui:define>
+</ui:composition>

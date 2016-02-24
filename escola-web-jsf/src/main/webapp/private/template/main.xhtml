@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+
+<h:form>
+<p:menubar>
+	<p:submenu label="Aluno" icon="fa-book">
+		<p:menuitem value="Listar" url="/private/aluno/list.jsf"/>
+		<p:menuitem value="Incluir" url="/private/aluno/insert.jsf"/>
+	</p:submenu>
+	<p:submenu label="Professor" icon="fa-apple">
+	</p:submenu>
+	<p:submenu label="Disciplina">
+	</p:submenu>
+</p:menubar>
+</h:form>
+
+<h1>
+	<h:outputText value="#{pageTitle}" />
+</h1>
+
+<ui:insert name="body"/>
+</html>
